@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ploy_app *.css
+recursive-include ploy_app *.csv
+recursive-include ploy_app *.html
+recursive-include ploy_app *.ico
+recursive-include ploy_app *.js
+recursive-include ploy_app *.json
+recursive-include ploy_app *.md
+recursive-include ploy_app *.png
+recursive-include ploy_app *.py
+recursive-include ploy_app *.svg
+recursive-include ploy_app *.txt
+recursive-exclude ploy_app *.pyc
