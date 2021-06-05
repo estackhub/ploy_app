@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "creation": "2021-06-01 00:09:05.951718",
+ "doctype": "DocType",
+ "document_type": "System",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "space",
+  "users",
+  "column_break_3",
+  "used_company",
+  "used_space",
+  "active_users",
+  "space_usage_details_section",
+  "private_files_size",
+  "public_files_size",
+  "column_break_11",
+  "backup_files_size",
+  "database_details_section",
+  "db_space",
+  "column_break_15",
+  "used_db_space",
+  "extra_module",
+  "loan_app",
+  "payroll",
+  "hr_app"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company Allowed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "space",
+   "fieldtype": "Data",
+   "label": "Files Space Allowed (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "users",
+   "fieldtype": "Data",
+   "label": "Users Allowed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "used_company",
+   "fieldtype": "Int",
+   "label": "Active Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "used_space",
+   "fieldtype": "Int",
+   "label": "Used Space (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "active_users",
+   "fieldtype": "Int",
+   "label": "Active Users",
+   "read_only": 1
+  },
+  {
+   "fieldname": "space_usage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Space Usage Details"
+  },
+  {
+   "fieldname": "private_files_size",
+   "fieldtype": "Int",
+   "label": "Private Files (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "public_files_size",
+   "fieldtype": "Int",
+   "label": "Public Files (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "backup_files_size",
+   "fieldtype": "Int",
+   "label": "Backup Files (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "database_details_section",
+   "fieldtype": "Section Break",
+   "label": "Database Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "db_space",
+   "fieldtype": "Data",
+   "label": "Database Space Allowed (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "used_db_space",
+   "fieldtype": "Int",
+   "label": "Database Size (MB)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extra_module",
+   "fieldtype": "Section Break",
+   "label": "Extra Module"
+  },
+  {
+   "fieldname": "payroll",
+   "fieldtype": "Data",
+   "label": "Payroll"
+  },
+  {
+   "fieldname": "loan_app",
+   "fieldtype": "Data",
+   "label": "Loan"
+  },
+  {
+   "fieldname": "hr_app",
+   "fieldtype": "Data",
+   "label": "Hrm"
+  }
+ ],
+ "hide_toolbar": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-06-01 16:03:03.210571",
+ "modified_by": "Administrator",
+ "module": "Ploy App",
+ "name": "VPanel",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,4 +1,6 @@
+from __future__ import unicode_literals
 from . import __version__ as app_version
+#from ploy_app import ploy_app
 
 app_name = "ploy_app"
 app_title = "Ploy App"
@@ -56,7 +58,7 @@ app_license = "MIT"
 # Installation
 # ------------
 
-# before_install = "ploy_app.install.before_install"
+before_install = "ploy_app.install.before_install"
 # after_install = "ploy_app.install.after_install"
 
 # Desk Notifications
@@ -96,6 +98,36 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
+on_login = 'ploy_app.events.auth.successful_login'
+
+doc_events = {
+  'User': {
+    'validate': 'ploy_app.ploy_app.allot.user_limit',
+    'on_update': 'ploy_app.ploy_app.allot.user_limit'
+	},
+  'Company': {
+    'validate':'ploy_app.ploy_app.allot.company_limit',
+    'on_update':'ploy_app.ploy_app.allot.company_limit'
+	},
+  ('Stock Entry', 'Purchase Invoice', 'Payment', 'Journal Entry'):{
+	  'on_submit' :'ploy_app.ploy_app.allot.db_space_limit'
+	  },
+  'File': {
+    'validate': 'ploy_app.ploy_app.allot.files_space_limit'
+	},
+  ('Attendance','Expense Claim', 'Attendance Request', 'Employee Checkin','Leave Application', 'Shift Request', 'Shift Assignment', 'Employee Onboarding','Employee Promotion','Vehicle Log', 'Driver','Vehicle'): {
+	  'validate': 'ploy_app.ploy_app.allot.hrm_status' 
+	  },
+  ('Loan Application', 'Loan', 'Loan Disbursement', 'Loan Repayment', 'Loan Write Off'): {
+	  'validate': 'ploy_app.ploy_app.allot.loan_status'
+	  },
+  ('Payroll Entry', 'Salary Slip', 'Additional Salary', 'Employee Benefit Application', 'Employee Benefit Claim') : {
+	  'validate': 'ploy_app.ploy_app.allot.payroll_status'
+  },
+  ('Project', 'Task', 'Project Template', 'Project Type', 'Timesheet', 'Activity Cost', 'Activity Type') : {
+	  'validate': 'ploy_app.ploy_app.allot.project_status'
+  }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -117,6 +149,11 @@ app_license = "MIT"
 # 		"ploy_app.tasks.monthly"
 # 	]
 # }
+scheduler_events = {
+	"daily": [
+		"ploy_app.tasks.daily"
+	]
+}
 
 # Testing
 # -------
