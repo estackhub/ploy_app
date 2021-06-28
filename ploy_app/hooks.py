@@ -4,12 +4,13 @@ from . import __version__ as app_version
 
 app_name = "ploy_app"
 app_title = "Ploy App"
-app_publisher = "Jide Olayinka"
-app_description = "System usage listing"
+app_publisher = "Thrifty Digital"
+app_description = "System usage listing and resources"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "spryng.managed@gmail.com"
 app_license = "MIT"
+#app_logo_url = '/assets/ploy_app/images/whitelabel_logo.jpg'
 
 # Includes in <head>
 # ------------------
@@ -17,10 +18,14 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/ploy_app/css/ploy_app.css"
 # app_include_js = "/assets/ploy_app/js/ploy_app.js"
+app_include_css = "/assets/ploy_app/css/whitelabel_app.css"
+app_include_js = "/assets/ploy_app/js/whitelabel.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/ploy_app/css/ploy_app.css"
+web_include_css = "/assets/ploy_app/css/whitelabel_web.css"
 # web_include_js = "/assets/ploy_app/js/ploy_app.js"
+
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "ploy_app/public/scss/website"
@@ -48,6 +53,12 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+'''
+website_context = {
+	"favicon": "/assets/ploy_app/images/whitelabel_logo.jpg",
+	"splash_image": "/assets/ploy_app/images/whitelabel_logo.jpg"
+}'''
+after_migrate = ['ploy_app.api.whitelabel_patch']
 
 # Generators
 # ----------
@@ -126,6 +137,9 @@ doc_events = {
   },
   ('Project', 'Task', 'Project Template', 'Project Type', 'Timesheet', 'Activity Cost', 'Activity Type') : {
 	  'validate': 'ploy_app.ploy_app.allot.project_status'
+  },
+  ('Issue', 'Issue Type', 'Warranty Claim', 'Serial No', 'Service Level Agreement', 'Maintenance Schedule', 'Maintenance Visit') : {
+	  'validate': 'ploy_app.ploy_app.allot.care_status'
   }
 }
 
@@ -155,6 +169,7 @@ scheduler_events = {
 	]
 }
 
+boot_session = "ploy_app.api.boot_session"
 # Testing
 # -------
 
@@ -209,4 +224,8 @@ user_data_fields = [
 # auth_hooks = [
 # 	"ploy_app.auth.validate"
 # ]
+
+override_whitelisted_methods = {
+	"frappe.utils.change_log.show_update_popup": "ploy_app.api.ignore_update_popup"
+}
 

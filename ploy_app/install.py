@@ -1,14 +1,10 @@
 import frappe
 from frappe.utils.data import add_days, today, add_months
 import json
-import time
-import datetime
-#from datetime import datetime, time
 import os
 
 def before_install():
-  # if frappe.db.get_default('desktop:home_page') != 'desktop':
-  #   print('ERPNext Quota can only be install after setup wizard is completed')
+  
   # Fetching user list
   filters = {
     'enabled': 1,
@@ -28,25 +24,27 @@ def before_install():
         active_users += 1
         break
   
-  trials =  add_days(today(), 1) 
-  # intTrial = datetime.datetime.strptime(trials, "%Y/%d/%m")
-  # trialstamp = datetime.datetime.timestamp(intTrial)
+  trials =  add_days(today(), 30) 
+  
 
   data = {
-    'users': 5,
+    'users': 3,
     'active_users': active_users,
-    'space': 512,
-    'db_space': 50,
-    'company': 2,
+    'space': 1280,
+    'db_space': 100,
+    'company': 1,
     'used_company': 1,
     'count_website_users': 0,
     'count_administrator_user': 0,
-    'valid_till': add_days(today(), 5),
+    'valid_till': trials,
     'status': 'freemium',
     'trial_ends': trials,
-    'loan_app':'active',
-    'payroll_md': 'close',
-    'hr_app': 'close'
+    'loan':'active',
+    'payroll': 'close',
+    'hr': 'close',
+    'crm': 'active',
+    'projects': 'close',
+    'care': 'close'
   }
   with open(frappe.get_site_path('allot.json'), 'w') as outfile:
     json.dump(data, outfile, indent= 2)
