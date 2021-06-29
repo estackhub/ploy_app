@@ -23,9 +23,13 @@
   "column_break_15",
   "used_db_space",
   "extra_module",
-  "loan_app",
+  "loan",
+  "hr",
   "payroll",
-  "hr_app"
+  "column_break_21",
+  "crm",
+  "project",
+  "care"
  ],
  "fields": [
   {
@@ -129,20 +133,39 @@
    "label": "Payroll"
   },
   {
-   "fieldname": "loan_app",
+   "fieldname": "loan",
    "fieldtype": "Data",
    "label": "Loan"
   },
   {
-   "fieldname": "hr_app",
+   "fieldname": "hr",
    "fieldtype": "Data",
    "label": "Hrm"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project"
+  },
+  {
+   "fieldname": "crm",
+   "fieldtype": "Data",
+   "label": "Crm"
+  },
+  {
+   "fieldname": "care",
+   "fieldtype": "Data",
+   "label": "Care Desk"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-01 16:03:03.210571",
+ "modified": "2021-06-29 18:00:38.671390",
  "modified_by": "Administrator",
  "module": "Ploy App",
  "name": "VPanel",

@@ -43,7 +43,7 @@ def before_install():
     'payroll': 'close',
     'hr': 'close',
     'crm': 'active',
-    'projects': 'close',
+    'project': 'close',
     'care': 'close'
   }
   with open(frappe.get_site_path('allot.json'), 'w') as outfile:

@@ -199,20 +199,6 @@ def get_directory_size(path):
 
 # added modules
 
-def validate_freemium():
-  '''
-  returns status
-  '''
-  with open(frappe.get_site_path('allot.json')) as jsonfile:
-      parsed = json.load(jsonfile)
-  trial = parsed["trial_ends"]
-  status = parsed["status"]
-  loan_app = parsed["loan_app"]
-  payroll = parsed["payroll"]
-  hr_app = parsed["hr_app"]
-  trial_end = datetime.datetime.fromtimestamp(
-    trial).strftime('%Y-%m-%d %H:%M:%S')
-  #datetime.datetime.now().date()
 
 def validate_freemium_limit (self, module):
   """ work on to get limit """
@@ -250,7 +236,7 @@ def crm_status(self, method):
 
 def project_status(self, method):
   ''' '''
-  validate_freemium_limit(self, 'projects')
+  validate_freemium_limit(self, 'project')
 
 def care_status(self, method):
   ''' '''
