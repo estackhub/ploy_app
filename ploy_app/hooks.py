@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
-#from ploy_app import ploy_app
 
 app_name = "ploy_app"
 app_title = "Ploy App"
@@ -16,13 +15,10 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/ploy_app/css/ploy_app.css"
-# app_include_js = "/assets/ploy_app/js/ploy_app.js"
 app_include_css = "/assets/ploy_app/css/whitelabel_app.css"
 app_include_js = "/assets/ploy_app/js/whitelabel.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/ploy_app/css/ploy_app.css"
 web_include_css = "/assets/ploy_app/css/whitelabel_web.css"
 # web_include_js = "/assets/ploy_app/js/ploy_app.js"
 
@@ -33,15 +29,6 @@ web_include_css = "/assets/ploy_app/css/whitelabel_web.css"
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
 # webform_include_css = {"doctype": "public/css/doctype.css"}
-
-# include js in page
-# page_js = {"page" : "public/js/file.js"}
-
-# include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
 # Home Pages
 # ----------

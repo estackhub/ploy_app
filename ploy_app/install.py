@@ -28,7 +28,7 @@ def before_install():
   
 
   data = {
-    'users': 3,
+    'users': 2,
     'active_users': active_users,
     'space': 1280,
     'db_space': 100,
@@ -39,12 +39,12 @@ def before_install():
     'valid_till': trials,
     'status': 'freemium',
     'trial_ends': trials,
-    'loan':'active',
-    'payroll': 'close',
-    'hr': 'close',
-    'crm': 'active',
-    'project': 'close',
-    'care': 'close'
+    'loan':trials,
+    'payroll': trials,
+    'hr': trials,
+    'crm': trials,
+    'project': trials,
+    'care': trials
   }
   with open(frappe.get_site_path('allot.json'), 'w') as outfile:
     json.dump(data, outfile, indent= 2)

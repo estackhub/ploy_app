@@ -209,13 +209,14 @@ def validate_freemium_limit (self, module):
   # trial_end = datetime.datetime.fromtimestamp(trial_period).strftime(
   #   '%Y-%m-%d %H:%M:%S')
   diff = date_diff(trial_period, today())
-  if diff > 0 and module_status == 'close' : pass 
-  elif diff < 0 and module_status == 'active': pass
-  elif diff < 0 and module_status == 'close':
+  dued = date_diff(module_status, today())
+  if diff > 0  : pass 
+  elif diff < 0 and dued > 0 : pass
+  elif diff < 0 and dued < 0 :
     msg = '<div> You have exceeded Limit. Please contact Support to upgrade your package</div>'
     frappe.throw(_(msg))
   else:
-    frappe.throw(_("Invalid access. Cant be 'Unlimited' "), frappe.ValidationError)
+    frappe.throw(_("Invalid access. 'Unlimited' not available "), frappe.ValidationError)
   
 
 def loan_status(self, method):
