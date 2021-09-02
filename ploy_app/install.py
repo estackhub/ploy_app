@@ -39,6 +39,8 @@ def before_install():
     'valid_till': trials,
     'status': 'freemium',
     'trial_ends': trials,
+    'warehouse': 2,
+    'used_warehouse': 1,
     'loan':trials,
     'payroll': trials,
     'hr': trials,

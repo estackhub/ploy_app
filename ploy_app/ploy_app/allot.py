@@ -197,7 +197,39 @@ def get_directory_size(path):
   
   return int(total_size)
 
-# added modules
+# ##added modules
+
+# Warehouse    
+def warehouse_limit(self, method):
+  '''
+  Validates Warehouse limit
+  '''
+  
+  # JSON file path
+  json_file_path = frappe.get_site_path('allot.json')
+  
+  # Reading File
+  with open(json_file_path) as jsonfile:
+      parsed = json.load(jsonfile)
+
+  allowed_warehouses = parsed.get('warehouse')
+  
+  # allowed Warehouses value type check
+  if type(allowed_warehouses) is not int:
+    frappe.throw(_("Invalid value for maximum allowed Warehouses limit. it can be a whole number only."), frappe.ValidationError)
+  
+  # Calculating total warehouses
+  total_warehouse = len(frappe.db.get_all('Warehouse',filters={})) - 1
+  
+  # Writing file #candidate for remove
+  parsed['used_warehouse'] = total_warehouse 
+  with open(frappe.get_site_path('allot.json'), 'w') as outfile:
+    json.dump(parsed, outfile, indent= 2)
+
+  # Validation
+  if allowed_warehouses != 0 and total_warehouse >= allowed_warehouses:
+      if not frappe.get_list('Warehouse', {'name': self.name}):  
+        frappe.throw(_("Only {} warehouse(s) allowed and you have {} warehouse(s).Please remove other warehouse or to increase the limit please contact support").format(parsed.get('warehouse'), total_warehouse))
 
 
 def validate_freemium_limit (self, module):
@@ -242,5 +274,6 @@ def project_status(self, method):
 def care_status(self, method):
   ''' '''
   validate_freemium_limit(self,'care')
+  
 
 

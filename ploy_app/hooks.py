@@ -107,6 +107,10 @@ doc_events = {
     'validate':'ploy_app.ploy_app.allot.company_limit',
     'on_update':'ploy_app.ploy_app.allot.company_limit'
 	},
+	'Warehouse': {
+    'validate':'ploy_app.ploy_app.allot.warehouse_limit',
+    'on_update':'ploy_app.ploy_app.allot.warehouse_limit'
+	},
   ('Stock Entry', 'Purchase Invoice', 'Payment', 'Journal Entry'):{
 	  'on_submit' :'ploy_app.ploy_app.allot.db_space_limit'
 	  },
@@ -119,7 +123,10 @@ doc_events = {
   ('Loan Application', 'Loan', 'Loan Disbursement', 'Loan Repayment', 'Loan Write Off'): {
 	  'validate': 'ploy_app.ploy_app.allot.loan_status'
 	  },
-  ('Payroll Entry', 'Salary Slip', 'Additional Salary', 'Employee Benefit Application', 'Employee Benefit Claim') : {
+	('Lead','Opportunity','Contract','Appointment','Newsletter','Campaign','Email Campaign','Social Media Post'): {
+	  'validate': 'ploy_app.ploy_app.allot.crm_status'
+	  },
+  ('Salary Component','Salary Structure','Salary Structure Assignment','Payroll Entry','Salary Slip','Additional Salary','Retention Bonus','Employee Incentive','Employee Benefit Application','Employee Benefit Claim') : {
 	  'validate': 'ploy_app.ploy_app.allot.payroll_status'
   },
   ('Project', 'Task', 'Project Template', 'Project Type', 'Timesheet', 'Activity Cost', 'Activity Type') : {
